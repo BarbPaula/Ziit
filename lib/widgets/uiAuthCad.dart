@@ -184,9 +184,9 @@ class _UiAuthCadState extends State<UiAuthCad> {
             primaryColor: Colors.black,
             visualDensity: VisualDensity.adaptivePlatformDensity,
             textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: Color.fromRGBO(150, 151, 154, 1),
-              displayColor: Colors.white,
-            ),
+                  bodyColor: Color.fromRGBO(150, 151, 154, 1),
+                  displayColor: Colors.white,
+                ),
             inputDecorationTheme: InputDecorationTheme(
                 fillColor: Color.fromRGBO(88, 89, 91, 1),
                 filled: true,
@@ -215,178 +215,178 @@ class _UiAuthCadState extends State<UiAuthCad> {
                 child: Container(
                     child: Center(
                         child: Form(
-                          key: _formKey,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(mensagem, style: TextStyle(color: Colors.red)),
+                  key: _formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(mensagem, style: TextStyle(color: Colors.red)),
 
-                              // Nome
-                              TextFormField(
-                                  controller: nomectrl,
-                                  decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.account_circle,
-                                        color: Color.fromRGBO(150, 151, 154, 1)),
-                                    hintText: 'Digite o seu Nome',
-                                    labelText: 'Nome*',
-                                  )),
-                              SizedBox(
-                                height: 10,
-                              ),
+                      // Nome
+                      TextFormField(
+                          controller: nomectrl,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.account_circle,
+                                color: Color.fromRGBO(150, 151, 154, 1)),
+                            hintText: 'Digite o seu Nome',
+                            labelText: 'Nome*',
+                          )),
+                      SizedBox(
+                        height: 10,
+                      ),
 
-                              //Email
-                              TextFormField(
-                                  controller: emailctrl,
-                                  validator: (value) {
-                                    if (!Utils.isEmailValid(value)) {
-                                      return 'Digite um email válido';
-                                    } else {
-                                      return null;
-                                    }
-                                  },
-                                  decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.email,
-                                        color: Color.fromRGBO(150, 151, 154, 1)),
-                                    hintText: 'Digite o seu Email',
-                                    labelText: 'Email*',
-                                  )),
+                      //Email
+                      TextFormField(
+                          controller: emailctrl,
+                          validator: (value) {
+                            if (!Utils.isEmailValid(value)) {
+                              return 'Digite um email válido';
+                            } else {
+                              return null;
+                            }
+                          },
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.email,
+                                color: Color.fromRGBO(150, 151, 154, 1)),
+                            hintText: 'Digite o seu Email',
+                            labelText: 'Email*',
+                          )),
 
-                              Padding(
-                                  padding: const EdgeInsets.only(top: 10),
-                                  child: UniqueChoinceWidget()),
-                              SizedBox(
-                                height: 10,
-                              ),
+                      Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: UniqueChoinceWidget()),
+                      SizedBox(
+                        height: 10,
+                      ),
 
-                              //Senha
-                              TextFormField(
-                                  controller: passctrl,
-                                  obscureText: true,
-                                  validator: (value) {
-                                    print(value.length);
-                                    if (value.length < 6) {
-                                      return 'Digite uma senha segura';
-                                    } else {
-                                      return null;
-                                    }
-                                  },
-                                  decoration: InputDecoration(
-                                      prefixIcon: Icon(Icons.lock,
-                                          color: Color.fromRGBO(150, 151, 154, 1)),
-                                      hintText: 'Digite a sua Senha',
-                                      labelText: 'Senha*')),
-                              SizedBox(
-                                height: 10,
-                              ),
+                      //Senha
+                      TextFormField(
+                          controller: passctrl,
+                          obscureText: true,
+                          validator: (value) {
+                            print(value.length);
+                            if (value.length < 6) {
+                              return 'Digite uma senha segura';
+                            } else {
+                              return null;
+                            }
+                          },
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.lock,
+                                  color: Color.fromRGBO(150, 151, 154, 1)),
+                              hintText: 'Digite a sua Senha',
+                              labelText: 'Senha*')),
+                      SizedBox(
+                        height: 10,
+                      ),
 
-                              //Confirmar Senha
-                              TextFormField(
-                                  controller: passconfirmctrl,
-                                  obscureText: true,
-                                  validator: (value) {
-                                    if (value.length < 6) {
-                                      return 'Digite uma senha segura';
-                                    } else {
-                                      return null;
-                                    }
-                                  },
-                                  decoration: InputDecoration(
-                                      prefixIcon: Icon(Icons.lock,
-                                          color: Color.fromRGBO(150, 151, 154, 1)),
-                                      hintText: 'Confirme a sua senha',
-                                      labelText: 'Confirme a sua Senha')),
-                              SizedBox(
-                                height: 10,
-                              ),
+                      //Confirmar Senha
+                      TextFormField(
+                          controller: passconfirmctrl,
+                          obscureText: true,
+                          validator: (value) {
+                            if (value.length < 6) {
+                              return 'Digite uma senha segura';
+                            } else {
+                              return null;
+                            }
+                          },
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.lock,
+                                  color: Color.fromRGBO(150, 151, 154, 1)),
+                              hintText: 'Confirme a sua senha',
+                              labelText: 'Confirme a sua Senha')),
+                      SizedBox(
+                        height: 10,
+                      ),
 
-                              TextFormField(
-                                  controller: referencia,
-                                  validator: (value) {
-                                    return null;
-                                  },
-                                  decoration: InputDecoration(
-                                      prefixIcon: Icon(Icons.person,
-                                          color: Color.fromRGBO(150, 151, 154, 1)),
-                                      hintText: 'Codigo de referencia',
-                                      labelText: 'Codigo de referencia')),
-                              SizedBox(
-                                height: 30,
-                              ),
+                      TextFormField(
+                          controller: referencia,
+                          validator: (value) {
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.person,
+                                  color: Color.fromRGBO(150, 151, 154, 1)),
+                              hintText: 'Codigo de referencia',
+                              labelText: 'Codigo de referencia')),
+                      SizedBox(
+                        height: 30,
+                      ),
 
-                              // Aceite Emails e Avisos
+                      // Aceite Emails e Avisos
 
-                              Row(
-                                children: [
-                                  Checkbox(
-                                    value: isSwitched1,
-                                    activeColor: Color(0xffCBFF00),
-                                    checkColor: Colors.black,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        isSwitched1 = value;
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                        'Deseja receber periodicamente informações sobre Energia Renovável'),
-                                  ),
-                                ],
-                              ),
-
-                              // Aceite Emails e Avisos
-                              SizedBox(
-                                height: 10,
-                              ),
-
-                              Row(
-                                children: [
-                                  Checkbox(
-                                    value: isSwitched2,
-                                    activeColor: Color(0xffCBFF00),
-                                    checkColor: Colors.black,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        isSwitched2 = value;
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                        'Estou de acordo com os termos e condições padrões do aplicativo'),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 30,
-                              ),
-
-                              ElevatedButton(
-                                onPressed: () {
-                                  cadastrarUsuario();
-                                },
-                                child: Container(
-                                    width: MediaQuery.of(context).size.width - 100,
-                                    height: 60,
-                                    child: Center(child: Text('CADASTRAR'))),
-                                style: ElevatedButton.styleFrom(
-                                    primary: Color.fromRGBO(65, 64, 66, 1),
-                                    onPrimary: Colors.white,
-                                    onSurface: Colors.grey,
-                                    side: BorderSide(color: Colors.white, width: 1)),
-                              ),
-                              SizedBox(
-                                height: 30,
-                              ),
-                            ],
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: isSwitched1,
+                            activeColor: Color(0xffCBFF00),
+                            checkColor: Colors.black,
+                            onChanged: (value) {
+                              setState(() {
+                                isSwitched1 = value;
+                              });
+                            },
                           ),
-                        ))),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
+                            child: Text(
+                                'Deseja receber periodicamente informações sobre Energia Renovável'),
+                          ),
+                        ],
+                      ),
+
+                      // Aceite Emails e Avisos
+                      SizedBox(
+                        height: 10,
+                      ),
+
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: isSwitched2,
+                            activeColor: Color(0xffCBFF00),
+                            checkColor: Colors.black,
+                            onChanged: (value) {
+                              setState(() {
+                                isSwitched2 = value;
+                              });
+                            },
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child: Text(
+                                'Estou de acordo com os termos e condições padrões do aplicativo'),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+
+                      ElevatedButton(
+                        onPressed: () {
+                          cadastrarUsuario();
+                        },
+                        child: Container(
+                            width: MediaQuery.of(context).size.width - 100,
+                            height: 60,
+                            child: Center(child: Text('CADASTRAR'))),
+                        style: ElevatedButton.styleFrom(
+                            primary: Color.fromRGBO(65, 64, 66, 1),
+                            onPrimary: Colors.white,
+                            onSurface: Colors.grey,
+                            side: BorderSide(color: Colors.white, width: 1)),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                    ],
+                  ),
+                ))),
               )),
         ));
   }

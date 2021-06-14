@@ -1,35 +1,22 @@
-
-import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:mkti_app_aventura/widgets/splash.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'widgets/uiAuthLogin.dart';
 import 'widgets/uiAuthCad.dart';
 import 'package:mkti_app_aventura/data/Sqlite.dart';
 import 'package:flutter/widgets.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+
 
 Future inic() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   criaTabela();
 }
 
-List <String> getAppId() => [Platform.isIOS
-    ? 'ca-app-pub-3940256099942544~1458002511'
-    : 'ca-app-pub-3940256099942544~3347511713'];
-
 void main() {
+  SharedPreferences.setMockInitialValues({});
   runApp(MyApp());
 }
-
-
-
-final bannerAdIdAndroid = "ca-app-pub-3940256099942544/6300978111";
-final bannerAdIdIos = "ca-app-pub-3940256099942544/2934735716";
-final intertstitialAdIdAndroid = "ca-app-pub-3940256099942544/1033173712";
-final intertstitialAdIdIos = "ca-app-pub-3940256099942544/4411468910";
-
-String getBannerId() => Platform.isIOS ? bannerAdIdIos : bannerAdIdAndroid;
-String getInterstitialId() => Platform.isIOS ? intertstitialAdIdIos : intertstitialAdIdAndroid;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

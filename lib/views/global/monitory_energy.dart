@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:mkti_app_aventura/data/UserClass.dart';
 import 'package:mkti_app_aventura/views/global/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'main_page.dart';
+import 'dart:io';
 
 class Page3 extends StatefulWidget {
   @override
@@ -13,6 +15,14 @@ class Page3 extends StatefulWidget {
 
 
 class _State extends State<Page3> {
+  bool _isAdLoaded = false;
+
+  final BannerAd myBanner = BannerAd(
+    adUnitId: Platform.isAndroid? 'ca-app-pub-3940256099942544/6300978111':'ca-app-pub-3940256099942544/2934735716',
+    size: AdSize.banner,
+    request: AdRequest(),
+    listener: BannerAdListener(),
+  );
 
   List typs=[];
   var total="0";
@@ -74,13 +84,13 @@ class _State extends State<Page3> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     typs = [
-      {"image": "images/change/image_1.png", "name": "SOLAR", "percent": prefs.get("porcSolar")==null?0:prefs.get("porcSolar"), "index":1},
-      {"image": "images/change/image_2.png", "name": "HÍDRICA", "percent": prefs.get("porcHidrica")==null?0:prefs.get("porcHidrica"), "index":2},
-      {"image": "images/change/image_3.png", "name": "EÓLICA", "percent": prefs.get("porcEolica")==null?0:prefs.get("porcEolica"), "index":3},
-      {"image": "images/change/image_4.jpeg", "name": "BIOMASSA", "percent": prefs.get("porcBiomassa")==null?0:prefs.get("porcBiomassa"),  "index":4}
-    ];
+        {"image": "images/change/image_1.png", "name": "SOLAR", "percent": prefs.get("porcSolar")==null?0:prefs.get("porcSolar"), "index":1},
+        {"image": "images/change/image_2.png", "name": "HÍDRICA", "percent": prefs.get("porcHidrica")==null?0:prefs.get("porcHidrica"), "index":2},
+        {"image": "images/change/image_3.png", "name": "EÓLICA", "percent": prefs.get("porcEolica")==null?0:prefs.get("porcEolica"), "index":3},
+        {"image": "images/change/image_4.jpeg", "name": "BIOMASSA", "percent": prefs.get("porcBiomassa")==null?0:prefs.get("porcBiomassa"),  "index":4}
+      ];
 
-    total = prefs.get("total")==null?0:prefs.get("total");
+      total = prefs.get("total")==null?0:prefs.get("total");
 
 
     setState(() {
@@ -89,13 +99,19 @@ class _State extends State<Page3> {
   }
 
 
-  @override
+@override
   void initState() {
     // TODO: implement initState
     super.initState();
+    myBanner.load();
     init();
   }
+  @override
+  void dispose() {
+    super.dispose();
+    myBanner.dispose();
 
+  }
 
 
 
@@ -154,71 +170,81 @@ class _State extends State<Page3> {
               children: typs
                   .map(
                     (e) => GestureDetector(
-                  onTap: () async {
-                    SharedPreferences prefs =
-                    await SharedPreferences.getInstance();
+                      onTap: () async {
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
 
-                    prefs.setString("energiaImg", e['image']);
-                    prefs.setString("energiaDesc", e['name']);
-                    prefs.setInt("06_cod", e['index']);
-                    setCel();
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return Main();
+                        prefs.setString("energiaImg", e['image']);
+                        prefs.setString("energiaDesc", e['name']);
+                        prefs.setInt("06_cod", e['index']);
+                        setCel();
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return Main();
+                          },
+                        ));
                       },
-                    ));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 4.0,
-                    ),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      elevation: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 4.0,
+                        ),
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          elevation: 4,
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Container(
-                                  height: 70,
-                                  width: 50,
-                                  child: Image(
-                                      image: AssetImage(
+                                Row(
+                                  children: [
+                                    Container(
+                                      height: 70,
+                                      width: 50,
+                                      child: Image(
+                                          image: AssetImage(
                                         e['image'],
                                       )),
+                                    ),
+                                    SizedBox(width: 10.0),
+                                    Text(e['name'],
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w300,
+                                            fontFamily: "Montserrat"))
+                                  ],
                                 ),
-                                SizedBox(width: 10.0),
-                                Text(e['name'],
+                                SizedBox(height: 10.0),
+                                Text(e['percent']+"%",
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.w300,
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.w700,
                                         fontFamily: "Montserrat"))
                               ],
                             ),
-                            SizedBox(height: 10.0),
-                            Text(e['percent']+"%",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 28,
-                                    fontWeight: FontWeight.w700,
-                                    fontFamily: "Montserrat"))
-                          ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-              )
+                  )
                   .toList(),
+            ),
+          ),
+          Padding(padding: const EdgeInsets.symmetric(
+              vertical: 20.0),
+            child:Container(
+              alignment: Alignment.center,
+              child: AdWidget(ad: myBanner),
+              width: myBanner.size.width.toDouble(),
+              height: myBanner.size.height.toDouble(),
             ),
           )
         ],
+
       ),
     );
   }

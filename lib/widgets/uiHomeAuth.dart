@@ -10,45 +10,45 @@ var context;
 
 Widget uiHomeAuth(){
   return Center(
-
+    
     child: Column(
 
       children:<Widget> [
 
         // Botão "Fazer Login"; (isso é um widget que chama a tela de Login)
         Row(
-          children: <Widget>[
+          children: <Widget>[    
 
             ElevatedButton(
               onPressed: () {Navigator.push(
-                context, MaterialPageRoute(builder: (context) => UiAuthLogin()),
-              );} ,
+                                              context, MaterialPageRoute(builder: (context) => UiAuthLogin()),
+                                                        );} , 
               child: Text('Login'),
               style: ElevatedButton.styleFrom(
-                  primary: Colors.teal,
-                  onPrimary: Colors.white,
-                  onSurface: Colors.grey
+                primary: Colors.teal,
+                onPrimary: Colors.white,
+                onSurface: Colors.grey
               ),
             ),
 
           ],
         ),
-
-        // Botão "Cadastre-se"; (isso é um widget que chama a tela de cadastro)
+      
+       // Botão "Cadastre-se"; (isso é um widget que chama a tela de cadastro)
         Row(
-          children: <Widget>[
+          children: <Widget>[  
 
             ElevatedButton(
-              onPressed: () {Navigator.push(
-                context, MaterialPageRoute(builder: (context) => UiAuthCad()),
-              );},
-              child: Text('Cadastre-se'),
-              style: ElevatedButton.styleFrom(
+                onPressed: () {Navigator.push(
+                                              context, MaterialPageRoute(builder: (context) => UiAuthCad()),
+                                                        );},  
+                child: Text('Cadastre-se'),
+                style: ElevatedButton.styleFrom(
                   primary: Colors.teal,
                   onPrimary: Colors.white,
                   onSurface: Colors.grey
+                ),
               ),
-            ),
 
           ],
         ),

@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.ACESS_FINE_LOCATION" />
     <uses-feature android:name="android.hardware.location.gps" />
 
+
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="Ziit"
@@ -62,8 +63,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <!-- COMPLETE: Add AdMob app ID -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-3940256099942544~3220297310"/>
     </application>
 </manifest>

@@ -69,60 +69,60 @@ class _State extends State<Page4> {
               children: typs
                   .map(
                     (e) => GestureDetector(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return Tela_01();
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return Tela_01();
+                          },
+                        ));
                       },
-                    ));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 4.0,
-                    ),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      elevation: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 4.0,
+                        ),
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          elevation: 4,
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Container(
-                                  height: 70,
-                                  width: 50,
-                                  child: Image(
-                                      image: AssetImage(
+                                Row(
+                                  children: [
+                                    Container(
+                                      height: 70,
+                                      width: 50,
+                                      child: Image(
+                                          image: AssetImage(
                                         e['image'],
                                       )),
+                                    ),
+                                    SizedBox(width: 10.0),
+                                    Text(e['name'],
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w300,
+                                            fontFamily: "Montserrat"))
+                                  ],
                                 ),
-                                SizedBox(width: 10.0),
-                                Text(e['name'],
+                                SizedBox(height: 10.0),
+                                Text(e['percent'],
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.w300,
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.w700,
                                         fontFamily: "Montserrat"))
                               ],
                             ),
-                            SizedBox(height: 10.0),
-                            Text(e['percent'],
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 28,
-                                    fontWeight: FontWeight.w700,
-                                    fontFamily: "Montserrat"))
-                          ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-              )
+                  )
                   .toList(),
             ),
           )

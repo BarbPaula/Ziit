@@ -41,8 +41,8 @@ class Tela_01 extends StatelessWidget {
                   height: 100,
                   child: Image(
                       image: AssetImage(
-                        'images/logo.png',
-                      )),
+                    'images/logo.png',
+                  )),
                 ),
                 SizedBox(height: 80),
                 ElevatedButton(
@@ -197,8 +197,8 @@ class Tela_01 extends StatelessWidget {
                   height: 100,
                   child: Image(
                       image: AssetImage(
-                        'images/logo_renovavel.png',
-                      )),
+                    'images/logo_renovavel.png',
+                  )),
                 ),
               ],
             ),

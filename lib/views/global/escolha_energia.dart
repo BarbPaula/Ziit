@@ -33,8 +33,8 @@ class _ChangeEnergyState extends State<ChangeEnergy> {
                   child: Container(
                     child: Image(
                         image: AssetImage(
-                          'images/cinza.png',
-                        )),
+                      'images/cinza.png',
+                    )),
                   ),
                 ),
               ),
@@ -43,16 +43,16 @@ class _ChangeEnergyState extends State<ChangeEnergy> {
                   color: Color(0xff414041),
                   child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 8.0, horizontal: 70.0),
-                        child: Text("Escolha a origem da energia para seu celular",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w300,
-                                fontFamily: "Montserrat")),
-                      ))),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 70.0),
+                    child: Text("Escolha a origem da energia para seu celular",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w300,
+                            fontFamily: "Montserrat")),
+                  ))),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: GridView.count(
@@ -67,56 +67,56 @@ class _ChangeEnergyState extends State<ChangeEnergy> {
                   children: typs
                       .map(
                         (e) => GestureDetector(
-                      onTap: () async {
-                        SharedPreferences prefs =
-                        await SharedPreferences.getInstance();
+                          onTap: () async {
+                            SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
 
-                        prefs.setInt("06_cod", e['06_cod']);
+                            prefs.setInt("06_cod", e['06_cod']);
 
-                        prefs.setString("energiaImg", e['image']);
-                        prefs.setString("energiaDesc", e['name']);
+                            prefs.setString("energiaImg", e['image']);
+                            prefs.setString("energiaDesc", e['name']);
 
-                        sistema.energiaDesc = e['name'];
-                        sistema.energiaImg = e['image'];
+                            sistema.energiaDesc = e['name'];
+                            sistema.energiaImg = e['image'];
 
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return Tela_01();
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return Tela_01();
+                              },
+                            ));
                           },
-                        ));
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 4.0,
-                        ),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          elevation: 4,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 35.0),
-                                child: Image(
-                                    image: AssetImage(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 4.0,
+                            ),
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              elevation: 4,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 35.0),
+                                    child: Image(
+                                        image: AssetImage(
                                       e['image'],
                                     )),
+                                  ),
+                                  SizedBox(height: 10.0),
+                                  Text(e['name'],
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 22,
+                                          fontFamily: "Montserrat"))
+                                ],
                               ),
-                              SizedBox(height: 10.0),
-                              Text(e['name'],
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 22,
-                                      fontFamily: "Montserrat"))
-                            ],
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-                  )
+                      )
                       .toList(),
                 ),
               )

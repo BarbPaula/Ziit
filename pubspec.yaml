@@ -21,41 +21,41 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  http: ^0.12.1
-  fluttertoast: ^7.1.1
-  mysql1: ^0.17.1
+  http:
+  fluttertoast:
+  mysql1:
   flutter:
     sdk: flutter
 
   # Add do livro
 
-  scoped_model: 1.0.1
+  scoped_model:
   sqflite:
   # path_provider: 0.5.0+1
-  flutter_icons: ^1.1.0
+  flutter_icons:
 
-  flutter_slidable: 0.4.9
-  intl: 0.15.7
-  device_info: ^1.0.0
-  date_format: ^1.0.9
-  google_fonts: ^1.0.0
-  dotted_border: ^1.0.7
-  shared_preferences: ^0.5.12
-  youtube_player_flutter: ^7.0.0+7
-  url_launcher: ^5.7.10
-  flutter_calendar_carousel: 1.3.15+3
+  flutter_slidable:
+  intl:
+  device_info:
+  date_format:
+  google_fonts:
+  dotted_border:
+  shared_preferences:
+  youtube_player_flutter:
+  url_launcher:
+  flutter_calendar_carousel:
   flutter_launcher_icons: "^0.8.0"
+  share_plus: "2.0.0"
   # device_info: ^0.2.1
-  dio: ^3.0.10
-  share_plus:
+  dio:
   image_picker:
-  #admob_flutter:
-  google_mobile_ads: ^0.13.0
+  share_extend: "^2.0.0"
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.0
+  cupertino_icons:
+  google_mobile_ads:
 
 dev_dependencies:
   flutter_test:

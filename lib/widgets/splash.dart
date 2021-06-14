@@ -22,7 +22,7 @@ class RTLMain extends StatefulWidget {
 
 class _RTLMainState extends State<RTLMain> {
   startTime() async {
-    var _duration = new Duration(seconds: 3);
+    var _duration = new Duration(seconds: 5);
     return new Timer(_duration, navigationPage);
   }
 
@@ -75,10 +75,10 @@ class _RTLMainState extends State<RTLMain> {
             child: Center(
               child: Container(
                   child: Image.asset(
-                    "images/logo.png",
-                    width: 125,
-                    height: 125,
-                  )),
+                "images/logo.png",
+                width: 125,
+                height: 125,
+              )),
             ),
           ),
         ));

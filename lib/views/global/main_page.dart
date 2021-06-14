@@ -98,25 +98,25 @@ class _MainState extends State<Main> {
                             onTap: () => _scaffoldKey.currentState.openDrawer(),
                             child: Container(
                                 child: Image.asset(
-                                  "images/buttons/button_menu.png",
-                                  width: 60,
-                                  height: 90,
-                                )),
+                              "images/buttons/button_menu.png",
+                              width: 60,
+                              height: 90,
+                            )),
                           ),
                           Container(
                               child: Image.asset(
-                                "images/logo_color.png",
-                                width: 80,
-                                height: 90,
-                              )),
+                            "images/logo_color.png",
+                            width: 80,
+                            height: 90,
+                          )),
                           GestureDetector(
                             onTap: () => {setActive("", 4)},
                             child: Container(
                                 child: Image.asset(
-                                  "images/buttons/button_info.png",
-                                  width: 60,
-                                  height: 90,
-                                )),
+                              "images/buttons/button_info.png",
+                              width: 60,
+                              height: 90,
+                            )),
                           ),
                         ],
                       ),
@@ -280,7 +280,7 @@ class _MainState extends State<Main> {
                         GestureDetector(
                             onTap: () async {
                               SharedPreferences prefs =
-                              await SharedPreferences.getInstance();
+                                  await SharedPreferences.getInstance();
                               if (prefs.getBool("logado") == null) {
                                 setActive("Perfil", 5);
                                 Navigator.of(context).pop();
@@ -437,10 +437,10 @@ class _MainState extends State<Main> {
                         ),
                         Container(
                             child: Image.asset(
-                              "images/verde.png",
-                              width: 125,
-                              height: 63,
-                            )),
+                          "images/verde.png",
+                          width: 125,
+                          height: 63,
+                        )),
                       ],
                     ),
                   ),

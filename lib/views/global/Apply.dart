@@ -27,38 +27,38 @@ class _ChangeEnergyState extends State<Aplly> {
                     height: 210,
                     child: Center(
                         child: Container(
-                          child: Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                                "Ah não! Seu celular está sendo carregado sem a garantia de origem da energia renovável. Vamos resolver isso?",
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w900,
+                                    fontSize: 22,
+                                    fontFamily: "Montserrat")),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Row(
                               children: [
-                                Text(
-                                    "Ah não! Seu celular está sendo carregado sem a garantia de origem da energia renovável. Vamos resolver isso?",
-                                    textAlign: TextAlign.start,
+                                Text("Mas antes escolha umas opções abaixo.",
+                                    textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w900,
-                                        fontSize: 22,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w300,
                                         fontFamily: "Montserrat")),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Row(
-                                  children: [
-                                    Text("Mas antes escolha umas opções abaixo.",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w300,
-                                            fontFamily: "Montserrat")),
-                                  ],
-                                ),
                               ],
                             ),
-                          ),
-                        ))),
+                          ],
+                        ),
+                      ),
+                    ))),
                 Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: UniqueChoinceWidget()),
@@ -67,7 +67,7 @@ class _ChangeEnergyState extends State<Aplly> {
                 ),
                 Padding(
                   padding:
-                  const EdgeInsets.only(left: 20.0, right: 20, top: 20),
+                      const EdgeInsets.only(left: 20.0, right: 20, top: 20),
                   child: DottedBorder(
                     color: Color(0xffCCFF00),
                     dashPattern: [7, 7, 7, 7],

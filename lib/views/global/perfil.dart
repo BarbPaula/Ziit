@@ -8,8 +8,17 @@ import 'package:mkti_app_aventura/views/contants.dart';
 import 'package:mkti_app_aventura/views/global/login.dart';
 import 'package:mkti_app_aventura/widgets/uiAuthCadEdit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:share_extend/share_extend.dart';
+
+_share() async {
+
+  await Share.share('check out my website https://www.institutototum.com.br/', subject: 'Look what I made!');
+
+  print('teste');
+
+}
 
 String dias = "";
 File _image;
@@ -75,27 +84,27 @@ class _Page5State extends State<Page6> {
       picUser = prefs.getString("pic")==null?"":prefs.getString("pic");
 
       try {
-        Dio dio = new Dio();
-        var z = prefs.get("id_user").toString();
+            Dio dio = new Dio();
+            var z = prefs.get("id_user").toString();
 
-        Response response = await dio.put(
-            "http://barbara.marciomkt.com.br/mkti_ziit/api/public/v1/api/usuarios/foto/update",
-            data: {
-              "00_cod": z,
-              "00_pic": base64
-            }
-        );
+            Response response = await dio.put(
+              "http://barbara.marciomkt.com.br/mkti_ziit/api/public/v1/api/usuarios/foto/update",
+              data: {
+                "00_cod": z,
+                "00_pic": base64
+              }
+            );
 
-        print(response);
-      } catch (e) {
-        print(e.response);
-      }
+            print(response);
+          } catch (e) {
+            print(e.response);
+          }
 
       setState(()  {
         _image = image;
         prefs.setString("pic", base64);
         picUser = base64;
-
+        
       });
 
     }
@@ -104,9 +113,11 @@ class _Page5State extends State<Page6> {
   _imgDecode(var img){
 
     return base64Decode(img);
-
+    
 
   }
+
+
 
   String name = "";
   String picUser = "";
@@ -116,7 +127,6 @@ class _Page5State extends State<Page6> {
   init() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var conn = await getCon();
-    print(prefs.getString("pic"));
     var results = await conn.query(
         'select * from 00_usuario where 00_cod = ?', [prefs.getInt("id_user")]);
 
@@ -135,7 +145,6 @@ class _Page5State extends State<Page6> {
 
     dias = prefs.getString("dias")==null?"0":prefs.getString("dias");
     picUser = prefs.getString("pic")==null?"":prefs.getString("pic");
-    print(prefs.getString("pic"));
   }
 
   void showOptions() {
@@ -188,37 +197,37 @@ class _Page5State extends State<Page6> {
                     child: Stack(
                       children: <Widget>[
                         GestureDetector(
-                            onTap: () {
+                          onTap: () {
 
-                              _imgFromGallery();
+                           _imgFromGallery();
 
 
 
-                            },
+                          },
                             child: Container(
-                              width: 125,
-                              height: 125,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: picUser != ""
-                                        ? MemoryImage(base64Decode(picUser))
-                                        : MemoryImage(base64Decode(imgpad))
-                                ),
-                                color: Color(0xff231F20),
-                                borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(
-                                      MediaQuery.of(context).size.width / 5.0),
-                                  topLeft: Radius.circular(
-                                      MediaQuery.of(context).size.width / 5.0),
-                                  bottomRight: Radius.circular(
-                                      MediaQuery.of(context).size.width / 5.0),
-                                  bottomLeft: Radius.circular(
-                                      MediaQuery.of(context).size.width / 5.0),
-                                  //Radius.circular(25)
-                                ),
+                          width: 125,
+                          height: 125,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: picUser != ""
+                                  ? MemoryImage(base64Decode(picUser))
+                                  : MemoryImage(base64Decode(imgpad))
+                            ),
+                            color: Color(0xff231F20),
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(
+                                  MediaQuery.of(context).size.width / 5.0),
+                              topLeft: Radius.circular(
+                                  MediaQuery.of(context).size.width / 5.0),
+                              bottomRight: Radius.circular(
+                                  MediaQuery.of(context).size.width / 5.0),
+                              bottomLeft: Radius.circular(
+                                  MediaQuery.of(context).size.width / 5.0),
+                              //Radius.circular(25)
+                            ),
 
-                              ),
-                            )),
+                          ),
+                        )),
                         Positioned(
                           // alignment: Alignment.topRight,
                           right: 0,
@@ -232,12 +241,12 @@ class _Page5State extends State<Page6> {
                               size: 30.0,
                             ),
                             decoration: BoxDecoration(
-                              //image: DecorationImage(
-                              // image: picUser != ""
-                              //  ? Image.memory(base64Decode(picUser))
-                              // : AssetImage("images/change/image_1.png"),
-                              //fit: BoxFit.cover,
-                              //),
+                               //image: DecorationImage(
+                                  // image: picUser != ""
+                                    //  ? Image.memory(base64Decode(picUser))
+                                      // : AssetImage("images/change/image_1.png"),
+                                   //fit: BoxFit.cover,
+                                   //),
                               color: Color(0xffCCFF00),
                               borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(
@@ -359,7 +368,7 @@ class _Page5State extends State<Page6> {
                           child: Container(
                             height: 190,
                             child: GestureDetector(
-                              onTap: () => Share.share('check out my website https://www.institutototum.com.br/', subject: 'Look what I made!'),
+                              onTap: () =>  _share(),
                               child: Card(
                                 color: types[1]['color'],
                                 shape: RoundedRectangleBorder(
@@ -370,9 +379,9 @@ class _Page5State extends State<Page6> {
                                   children: [
                                     Container(
                                         child: Image.asset(
-                                          "images/button_profire.png",
-                                          height: 45,
-                                        )),
+                                      "images/button_profire.png",
+                                      height: 45,
+                                    )),
                                     SizedBox(height: 10),
                                     Text(types[1]['text'])
                                   ],
